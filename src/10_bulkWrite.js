@@ -41,30 +41,41 @@ const DB_COLLECTION = 'employees';
     // insert employees
     await collection.insertMany(employees);
 
-    const result = await collection.bulkWrite([
-      {
-        insertOne: { document: { ...manager } },
-      },
-      {
-        updateOne: {
-          filter: { name: 'Zagar Milos' },
-          update: {
-            $set: { name: 'Milos Zagar', role: 'COO' },
-          },
-          upsert: true,
+    const bulkWriteResult = await collection.bulkWrite(
+      [
+        {
+          insertOne: { document: { ...manager } },
         },
-      },
-      {
-        updateMany: {
-          filter: { role: 'Software developer' },
-          update: {
-            $set: { updatedAt: new Date() },
+        {
+          updateOne: {
+            filter: { name: 'Zagar Milos' },
+            update: {
+              $set: { name: 'Milos Zagar', role: 'COO' },
+            },
+            upsert: true,
           },
         },
-      },
-    ]);
+        {
+          updateMany: {
+            filter: { role: 'Software developer' },
+            update: {
+              $set: { updatedAt: new Date() },
+            },
+          },
+        },
+        // deleteOne
+        // delteMany
+        // replaceOne
+      ],
+      {
+        w: 1, // number or "majority",
+        j: true, // {boolean} disk or memory
+        ordered: true, // {boolean} sync/async
+        wtimeout: 300, // {number} of miliseconds
+      }
+    );
 
-    console.log(result);
+    console.log(bulkWriteResult.result);
   } catch (error) {
     console.error(error);
     process.exit(1);
