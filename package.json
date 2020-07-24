@@ -4,7 +4,8 @@
   "description": "Emakina.RS Knowledge Share: MongoDB for JS developers",
   "scripts": {
     "seedPhotos": "node src/seedPhotos.js",
-    "seedMovies": "mongoimport -d emakinaks -c movies data/movies.json"
+    "seedMovies": "mongoimport -d emakinaks -c movies data/movies.json",
+    "dropPhotos": "node src/dropPhotosCollection.js"
   },
   "keywords": [
     "nodejs",

@@ -1,5 +1,3 @@
-const fs = require('fs').promises;
-const path = require('path');
 const { MongoClient } = require('mongodb');
 
 const DB_URL = 'mongodb://localhost:27017';
@@ -14,17 +12,10 @@ const DB_COLLECTION = 'photos';
     const db = client.db(DB_NAME);
     const collection = db.collection(DB_COLLECTION);
 
-    // read seed data from json file
-    const photosJSON = await fs.readFile(
-      path.join(__dirname, '../data/photos.json'),
-      'utf-8'
-    );
-    const photosArray = JSON.parse(photosJSON);
+    // clear collection
+    const dropResult = await collection.drop();
 
-    // insert data
-    const result = await collection.insertMany(photosArray);
-
-    console.dir(`Number of inserted documents: ${result.insertedCount}`);
+    console.log(dropResult);
   } catch (error) {
     console.error(error);
     process.exit(1);
