@@ -38,7 +38,7 @@ const DB_COLLECTION = 'employees';
 
     const result = await collection.insertMany(employees);
 
-    console.log(`insertedCount:\t${result.insertedCount}`);
+    console.log(`📥 insertedCount:\t${result.insertedCount}`);
   } catch (error) {
     console.error(error);
     process.exit(1);

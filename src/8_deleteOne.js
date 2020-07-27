@@ -14,8 +14,10 @@ const DB_COLLECTION = 'photos';
 
     const photoIdToDelte = Math.floor(Math.random() * (5000 - 2) + 1);
 
-    console.log(`Deleting photoId: ${photoIdToDelte}`)
-    const deleteResult = await collection.deleteOne( { photoId: photoIdToDelte });
+    console.log(`Deleting photoId: ${photoIdToDelte} 🚮`);
+    const deleteResult = await collection.deleteOne({
+      photoId: photoIdToDelte,
+    });
 
     console.log(deleteResult.result);
   } catch (error) {

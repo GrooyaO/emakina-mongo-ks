@@ -14,8 +14,10 @@ const DB_COLLECTION = 'photos';
 
     const albumIdToDelte = Math.floor(Math.random() * (100 - 2) + 1);
 
-    console.log(`Deleting photos from albumId: ${albumIdToDelte}`)
-    const deleteResult = await collection.deleteMany( { albumId: albumIdToDelte });
+    console.log(`Deleting photos from albumId: ${albumIdToDelte} 🚮`);
+    const deleteResult = await collection.deleteMany({
+      albumId: albumIdToDelte,
+    });
 
     console.log(deleteResult.result);
   } catch (error) {

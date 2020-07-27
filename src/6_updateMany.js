@@ -12,14 +12,14 @@ const DB_COLLECTION = 'employees';
     const db = client.db(DB_NAME);
     const collection = db.collection(DB_COLLECTION);
 
-    const updateOneResult = await collection.updateMany(
+    const updateManyResult = await collection.updateMany(
       { role: 'Software developer' },
       {
         $push: { languages: 'javascript' },
       }
     );
 
-    console.log(updateOneResult.result);
+    console.log(updateManyResult.result);
   } catch (error) {
     console.error(error);
     process.exit(1);

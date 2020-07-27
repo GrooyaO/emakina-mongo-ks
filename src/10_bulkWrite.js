@@ -21,6 +21,7 @@ const DB_COLLECTION = 'employees';
       employed: new Date(Date.parse('2018-04-18')),
       createdAt: new Date(),
     };
+
     const employees = [
       {
         name: 'Nebojsa Jakovljevic',

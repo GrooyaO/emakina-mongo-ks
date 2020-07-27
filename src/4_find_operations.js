@@ -12,7 +12,7 @@ const DB_COLLECTION = 'movies';
     const db = client.db(DB_NAME);
     const collection = db.collection(DB_COLLECTION);
 
-    console.log('##### Top 10 before 1990 #####');
+    console.log('##### Top 10 before 1990 🍿 🎥 #####');
     const moviesAfter2000 = collection.find({
       year: { $lt: 1990 },
       'imdb.votes': { $gte: 5000 },
@@ -35,7 +35,7 @@ const DB_COLLECTION = 'movies';
     );
 
     // Marlon Brando movies
-    console.log('##### Marlon Brando movies #####');
+    console.log('##### Marlon Brando movies 🍿 🎥 #####');
     const MBMovies = collection.find({
       cast: 'Marlon Brando',
     });
@@ -55,7 +55,7 @@ const DB_COLLECTION = 'movies';
     );
 
     // Al Pacino and/or Marlon Brando movies
-    console.log('##### Al Pacino and/or Marlon Brando movies #####');
+    console.log('##### Al Pacino and/or Marlon Brando movies 🍿 🎥 #####');
     const APMBMovies = collection.find({
       $and: [
         {

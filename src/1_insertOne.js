@@ -12,7 +12,7 @@ const DB_COLLECTION = 'employees';
     const db = client.db(DB_NAME);
     const collection = db.collection(DB_COLLECTION);
 
-    const result = await collection.insertOne({
+    const insertResult = await collection.insertOne({
       name: 'Nebojsa Jakovljevic',
       role: 'Software developer',
       employed: new Date(Date.parse('2020-04-01')),
@@ -20,9 +20,12 @@ const DB_COLLECTION = 'employees';
       createdAt: new Date(),
     });
 
-    console.log(
-      `insertedCount:\t${result.insertedCount}\ninsertedId:\t${result.insertedId}`
-    );
+    if (insertResult.result.ok) {
+      console.log('👌');
+      console.log(
+        `insertedCount:\t${insertResult.insertedCount}\ninsertedId:\t${insertResult.insertedId}`
+      );
+    }
   } catch (error) {
     console.error(error);
     process.exit(1);

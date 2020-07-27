@@ -13,13 +13,13 @@ const DB_COLLECTION = 'photos';
     const collection = db.collection(DB_COLLECTION);
 
     const oneResult = await collection.findOne({ albumId: 10 });
-    console.log('### findOne result');
+    console.log('### findOne result 🔍');
     console.log(oneResult);
 
     const manyResult = collection.find({ photoId: { $gt: 1000 } }); // returns cursor
 
     // sort, skip, limit, get array of results
-    console.log('### findMany result');
+    console.log('### findMany result 🔍');
     const smallResult = await manyResult
       .sort({ photoId: -1 })
       .skip(100)

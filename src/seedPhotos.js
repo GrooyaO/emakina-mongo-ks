@@ -24,7 +24,7 @@ const DB_COLLECTION = 'photos';
     // insert data
     const result = await collection.insertMany(photosArray);
 
-    console.dir(`Number of inserted documents: ${result.insertedCount}`);
+    console.dir(`Number of inserted documents: ${result.insertedCount} 🧮`);
   } catch (error) {
     console.error(error);
     process.exit(1);

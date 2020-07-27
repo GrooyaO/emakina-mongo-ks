@@ -5,7 +5,7 @@
   "scripts": {
     "seedPhotos": "node src/seedPhotos.js",
     "seedMovies": "mongoimport -d emakinaks -c movies data/movies.json",
-    "dropPhotos": "node src/dropPhotosCollection.js"
+    "dropPhotos": "node src/dropPhotos.js"
   },
   "keywords": [
     "nodejs",
