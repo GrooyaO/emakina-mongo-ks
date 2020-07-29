@@ -13,18 +13,18 @@ const DB_COLLECTION = 'movies';
     const collection = db.collection(DB_COLLECTION);
 
     console.log('##### Top 10 before 1990 🍿 🎥 #####');
-    const moviesAfter2000 = collection.find({
+    const moviesBefore1990 = collection.find({
       year: { $lt: 1990 },
       'imdb.votes': { $gte: 5000 },
     });
 
-    console.log(`Count: ${await moviesAfter2000.count()}`);
-    const moviesAfter2000Top10 = await moviesAfter2000
+    console.log(`Count: ${await moviesBefore1990.count()}`);
+    const moviesBefore1990Top10 = await moviesBefore1990
       .sort({ 'imdb.rating': -1 })
       .limit(10)
       .toArray();
     console.table(
-      moviesAfter2000Top10.map((movie) => {
+      moviesBefore1990Top10.map((movie) => {
         return {
           title: movie.title,
           genres: movie.genres.join(' | '),
